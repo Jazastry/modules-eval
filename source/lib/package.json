@@ -1,0 +1,16 @@
+{
+  "name": "modules_test",
+  "version": "1.0.0",
+  "description": "Modules test project.",
+  "main": "\\main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jazastry",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bootstrap-xl": "^1.0.0",
+    "jquery": "^2.2.0"
+  }
+}

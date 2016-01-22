@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="./modules/monitoring_tabs/style.css">
+<div class="monitoring_windows_container col-xl-12">
+    <div class="control_bar col-xl-12">
+        <button id="monitoring_tabs_add_module_button" type="button" class="pull-right default_square_button add_monitoring_window">
+            <div class="glyphicon glyphicon-plus"></div>
+        </button>
+    </div>
+    <div class="select_chanel_dialog bordered_box col-xl-4 col-xl-offset-3">
+        <button type="button" class="pull-right default_square_button hide_select_chanel_dialog">
+            <div class="glyphicon glyphicon-remove"></div>
+        </button>
+        <h4>Select Channel</h4>
+        <button type="button" class="default_button channel_submit">Submit</button>
+    </div>
+    <div id="monitoring_grid" class=" col-xl-12">
+        <div class="col-xl-6 monitoring_container template">
+            <div class="bordered_box">
+                <button type="button" class="pull-right default_square_button monitoring_tabs_remove_module_button">
+                    <div class="glyphicon glyphicon-remove"></div>
+                </button>
+                <div module="monitoring"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./modules/monitoring_tabs/main.js"></script>

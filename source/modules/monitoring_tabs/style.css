@@ -1,0 +1,27 @@
+.select_chanel_dialog {
+    display: none;
+}
+
+.select_chanel_dialog i {
+    padding-left: 10px;
+}
+
+.select_chanel_dialog button {
+    margin-top: 10px;
+}
+
+.monitoring_windows_container {
+    padding: 20px;
+}
+
+.monitoring_windows_container .monitoring_container.template {
+    display: none;
+}
+
+.monitoring_windows_container .monitoring_container {
+    margin-top: 20px;
+    padding: 10px;
+}
+.sortable-placeholder {
+	background-color: #484545;
+}
