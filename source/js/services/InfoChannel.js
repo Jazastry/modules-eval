@@ -33,7 +33,7 @@ var infoChannelService = (function(){
 		for (var i = 0; i < listeners.length; i++) {
 			if( listeners[ i ].listener === listener ) {
 		    listeners.splice( i, 1 );
-		    console.log('disconnected chanelName, listener ' , chanelName, listener);
+
 		    return true;
 		  }
 		}		 

@@ -52,6 +52,23 @@ MonitoringTabsModule.prototype.loadEvents = function() {
     });
 };
 
+MonitoringTabsModule.prototype.loadGridElementLabelBarEvents = function(moduleContainer) {
+    var _this = this;
+    var gridModuleContainer = $(moduleContainer).find('div[module]');
+    // 
+    $(moduleContainer).find('.sortable_grid_children_label_bar button.grid_module_collapse_btn').on('click', function(){
+        if ($(gridModuleContainer).hasClass('min')) {
+            $( gridModuleContainer ).show( 'blind', {}, 500);
+            $(gridModuleContainer).removeClass('min');
+            $(this).children('div').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        } else {
+            $( gridModuleContainer ).hide( 'blind', {}, 500);
+            $(gridModuleContainer).addClass('min');
+            $(this).children('div').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+        }
+    });
+};
+
 MonitoringTabsModule.prototype.addMonitoringModule = function(channelName) {
     var _this = this;
 
@@ -68,11 +85,15 @@ MonitoringTabsModule.prototype.addMonitoringModule = function(channelName) {
 
     $(_this.containerElement).find('.monitoring_container').last().after(monitoringOuterContainer);
 
-    $( "#monitoring_grid" ).sortable({
+    // configure jqueryUi grid elements behavior
+    $( "#sortable_grid_column" ).sortable({
         tolerance: "pointer",
         revert: true,
+        containment: "parent"
     });
-    $( "#monitoring_grid" ).disableSelection();
+    $( "#sortable_grid" ).disableSelection();
+    // configure sortable_grid_children_label_bar events
+    _this.loadGridElementLabelBarEvents(monitoringOuterContainer);
 };
 
 MonitoringTabsModule.prototype.loadMonitoringTabEvants = function(monitoringContainer, module) {

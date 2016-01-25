@@ -16,6 +16,67 @@ body {
     padding: 20px;
 }
 
+
+/* sortable_grid */
+
+.sortable_grid_bordered_box {
+    border: 2px solid #FFF;
+    border-radius: 7px;
+    background-color: #000;
+    padding: 0px;
+}
+
+
+/* sortable_grid_label_bar */
+
+.sortable_grid_children_label_bar {
+    outline: 2px solid #fff;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    background-color: #000;
+}
+
+.label_bar_square_button {
+    background-color: #000;
+    border: 1px solid #fff;
+    /*border: none;*/
+    padding: 1px 1px 2px 2px;
+    font-size: 25px;
+    line-height: 11px;
+    position: relative;
+    top: 0px;
+}
+.label_bar_square_button > div {
+    top: 0;
+}
+.sortable_grid_module_container > module_container {
+
+}
+/*.label_bar_square_button.min {
+    padding: 1px 2px 2px 1px;
+    border-left: 2px solid #fff;
+}
+.label_bar_square_button.min div.glyphicon.glyphicon-minus {
+    top: 4px;
+    right: 1;
+}*/
+/*.sortable_grid_module_container {
+    max-height: 1900px;
+    -moz-transition: max-height 1.5s ease;
+    -webkit-transition: max-height 1.5s ease;
+    -o-transition: max-height 1.5s ease;
+    transition: max-height 1.5s ease;
+}
+.sortable_grid_module_container.min {
+    max-height: 0px;
+}*/
+
+
+/* defaults */
+
 .default_button {
     background-color: #000;
     border: 1px solid #FFF;
