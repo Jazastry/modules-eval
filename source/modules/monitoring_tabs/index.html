@@ -12,23 +12,43 @@
         <h4>Select Channel</h4>
         <button type="button" class="default_button channel_submit">Submit</button>
     </div>
-    <div id="sortable_grid_column" class=" col-xl-12">
-        <div class="col-xl-6 monitoring_container template">
-            <div class="col-xl-12 sortable_grid_bordered_box">
-                <div class="col-xl-12 sortable_grid_children_label_bar">                    
+    <div class="clearfix"></div>
+    <div class="grid_container">
+        <div class="sortable_grid_column">
+            <div class="grid_element grid_bordered_box template">
+                <div class="grid_element_header">
                     <button type="button" class="pull-right label_bar_square_button monitoring_tabs_remove_module_button">
                         <div class="glyphicon glyphicon-remove"></div>
                     </button>
-                    <!-- <button type="button" class="pull-right label_bar_square_button max">
-                        <div class="glyphicon glyphicon-unchecked"></div>
-                    </button> -->
                     <button type="button" class="pull-right label_bar_square_button grid_module_collapse_btn">
-                        <div class="glyphicon glyphicon-minus"></div>
+                    <div class="glyphicon glyphicon-minus"></div>
                     </button>
                 </div>
-                <div module="monitoring" class="sortable_grid_module_container"></div>
+                <div module="monitoring" class="grid_element_content"></div>
+            </div>
+        </div>
+        <div class="sortable_grid_column">
+            <div class="grid_element grid_bordered_box template">
             </div>
         </div>
     </div>
+    <!--     <div id="sortable_grid_column" class=" col-xl-12">
+    <div class="col-xl-6 grid_element template">
+        <div class="col-xl-12 grid_bordered_box">
+            <div class="col-xl-12 grid_element_header">                    
+                <button type="button" class="pull-right label_bar_square_button monitoring_tabs_remove_module_button">
+                    <div class="glyphicon glyphicon-remove"></div>
+                </button>
+                <button type="button" class="pull-right label_bar_square_button max">
+                    <div class="glyphicon glyphicon-unchecked"></div>
+                </button>
+                <button type="button" class="pull-right label_bar_square_button grid_module_collapse_btn">
+                    <div class="glyphicon glyphicon-minus"></div>
+                </button>
+            </div>
+            <div module="monitoring" class="grid_element_content"></div>
+        </div>
+    </div>
+</div> -->
 </div>
 <script src="./modules/monitoring_tabs/main.js"></script>

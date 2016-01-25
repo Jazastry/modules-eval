@@ -56,7 +56,14 @@ MonitoringTabsModule.prototype.loadGridElementLabelBarEvents = function(moduleCo
     var _this = this;
     var gridModuleContainer = $(moduleContainer).find('div[module]');
     // 
-    $(moduleContainer).find('.sortable_grid_children_label_bar button.grid_module_collapse_btn').on('click', function(){
+
+    // $(moduleContainer).find('.grid_element_header button.grid_module_collapse_btn').on('click', function() {
+    //     var btn = $(this);
+    //     btn.children('div').toggleClass("glyphicon-minus glyphicon-plus");
+    //     btn.closest(".grid_element").find(".grid_element_content").toggle();
+    // });
+
+    $(moduleContainer).find('.grid_element_header button.grid_module_collapse_btn').on('click', function(){
         if ($(gridModuleContainer).hasClass('min')) {
             $( gridModuleContainer ).show( 'blind', {}, 500);
             $(gridModuleContainer).removeClass('min');
@@ -72,7 +79,7 @@ MonitoringTabsModule.prototype.loadGridElementLabelBarEvents = function(moduleCo
 MonitoringTabsModule.prototype.addMonitoringModule = function(channelName) {
     var _this = this;
 
-    var monitoringOuterContainer = $(_this.containerElement).find('.monitoring_container').first().clone();
+    var monitoringOuterContainer = $(_this.containerElement).find('.grid_element').first().clone();
     $(monitoringOuterContainer).removeClass('template');
     var monitoringInnerContainer = $(monitoringOuterContainer).find('div[module="monitoring"]');
 
@@ -83,16 +90,41 @@ MonitoringTabsModule.prototype.addMonitoringModule = function(channelName) {
         module.loadChannelInfo();
     });
 
-    $(_this.containerElement).find('.monitoring_container').last().after(monitoringOuterContainer);
+    var firstCol = $(_this.containerElement).find('.sortable_grid_column')[0];
+    var forstColLen = $(firstCol).find('.grid_element').not('.grid_element.template').length; 
+    console.log('forstColLen ' , forstColLen);
+    var secondCol =$(_this.containerElement).find('.sortable_grid_column')[1];
+    var secondColLen = $(secondCol).find('.grid_element').not('.grid_element.template').length;
+    console.log('secondColLen ' , secondColLen);
+
+    if (forstColLen > secondColLen) {
+        $(secondCol).append(monitoringOuterContainer);
+    } else {
+        $(firstCol).append(monitoringOuterContainer);
+    }
+
+    // $(_this.containerElement).find('.grid_element').last().after(monitoringOuterContainer);
 
     // configure jqueryUi grid elements behavior
-    $( "#sortable_grid_column" ).sortable({
-        tolerance: "pointer",
+    $(".sortable_grid_column").sortable({
+        // tolerance: "pointer",
         revert: true,
-        containment: "parent"
+        // containment: ".grid_container",
+        connectWith: ".sortable_grid_column",
+        handle: ".grid_element_header",
+        cancel: ".grid_module_collapse_btn",
+        placeholder: "grid_element_placeholder ui-corner-all",
+        activate: function(e, ui){
+            var elHeight = $(ui.item).css('height');
+            var marg = $(ui.item).css('margin-top');
+            var width = $(ui.item).css('width');
+            $('.grid_element_placeholder')
+                .css('height', elHeight)
+                .css('margin-top', marg)
+                .css('width', width);
+        },
     });
-    $( "#sortable_grid" ).disableSelection();
-    // configure sortable_grid_children_label_bar events
+
     _this.loadGridElementLabelBarEvents(monitoringOuterContainer);
 };
 
