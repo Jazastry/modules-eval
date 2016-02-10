@@ -42,8 +42,7 @@ modules = (function() {
     // load nad render one level modules
     Modules.prototype.renderOneLevelModules = function(moduleParentElement) {
     	var _this = this;
-
-        var oneLevelModules = $(moduleParentElement).children('div[module]').not('div[module]>div[module]');
+        var oneLevelModules = $(moduleParentElement).find('*[module]').not('*[module]>*[module]');
 
         for (var i = 0; i < oneLevelModules.length; i++) {
             _this.moduleFactory(oneLevelModules[i]);

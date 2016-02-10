@@ -55,33 +55,6 @@ MonitoringModule.prototype.loadEvents = function() {
         infoChannelService.broadcast(channel, message, _this);
     });
 };
-MonitoringModule.prototype.loadJqueryUi = function(element) {
-    var _this = this;
-    $(element).dialog({
-        // appendTo: ,
-        autoOpen: true,
-        buttons: [],
-        closeOnEscape: true,
-        closeText: '',
-        dialogClass: 'bordered_box',
-        draggable: true,
-        // height: ,
-        // hide: ,
-        maxHeight: 400,
-        maxWidth: 600,
-        minHeight: 240,
-        minWidth: 450,
-        modal: false,
-        // position: ,
-        resizable: true,
-        // show: ,
-        title: 'Monitoring',
-        // width: ,
-        close: function( event, ui ) {
-            _this.remove();
-        }
-    });
-};
 
 MonitoringModule.prototype.remove = function() {
     var _this = this;

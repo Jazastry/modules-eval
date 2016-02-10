@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Test service object</title>
+
+
+        <script type="text/javascript" src="lib/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="js/service.js"></script>
+
+        <script type="text/javascript">
+            var s = new ttService("10.200.0.45:9125/v2");
+            s.subscribeVolumes(function(op, id) { console.log("OP: " + op +", ID: " +id);
+                   console.log(s.getVolume(id)) });
+            console.log("SUBSCRIBED");
+            s.shareVolume("3828D68D000000000000000000000000", true, true);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

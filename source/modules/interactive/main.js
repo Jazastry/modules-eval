@@ -5,7 +5,7 @@ function InteractiveModule(containerElement) {
 
 InteractiveModule.prototype.loadEvents = function() {
     var _this = this;
-
+    
     // loop through info channels and load events
     $(_this.containerElement).find('.interactive_channel').each(function(i, channelElement) {
         var channelName = $(channelElement).attr('id');

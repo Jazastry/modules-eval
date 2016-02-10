@@ -1,0 +1,107 @@
+/* DARK THEME */
+body.dark .navbar_left {
+    padding-right: 20px;
+}
+
+body.dark .navbar_left section div {
+    border: 2px solid #717171;
+    font-size: 18px;
+    padding: 5px 3px 5px 10px;
+}
+
+body.dark .navbar_left section div:hover {
+    cursor: pointer;
+    background-color: #5F5F5F;
+}
+
+body.dark .navbar_left section div:active {
+    cursor: pointer;
+    background-color: #828282;
+}
+
+body.dark .navbar_left section ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    background-color: #424242;
+
+    display: none;
+}
+
+body.dark .navbar_left section ul li {
+    position: relative;
+    float: left;
+    width: 100%;
+    left: -2px;
+    padding: 5px 0px 5px 20px;
+    border-bottom: 1px solid #000;
+}
+
+body.dark .navbar_left section ul li:hover {
+	background-color: #676767;
+}
+body.dark .navbar_left section ul li:active {
+	background-color: #9A9A9A;
+}
+
+body.dark .navbar_left section ul li:last-child {
+    border-bottom: none;
+}
+
+
+/* LIGHT THEME */
+.navbar_left {
+    padding-right: 20px;
+}
+
+.navbar_left section div {
+    border: 2px solid #CACACA;
+    font-size: 18px;
+    padding: 5px 3px 5px 10px;
+}
+
+.navbar_left section div:hover {
+    cursor: pointer;
+    background-color: #E2E2E2;
+}
+
+.navbar_left section div:active {
+    cursor: pointer;
+    background-color: #E8E8E8;
+}
+
+.navbar_left section ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    background-color: #E7E7E7;
+
+    display: none;
+}
+
+.navbar_left section ul li {
+    position: relative;
+    float: left;
+    width: 100%;
+    left: -2px;
+    padding: 5px 0px 5px 20px;
+    border-bottom: 1px solid #FFFFFF;
+    background-color: #D7D7D7
+}
+
+.navbar_left section ul li:hover {
+    background-color: #C7C7C7;
+}
+.navbar_left section ul li:active {
+    background-color: #F9F9F9;
+}
+
+.navbar_left section ul li:last-child {
+    border-bottom: none;
+}
