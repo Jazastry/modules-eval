@@ -1,0 +1,30 @@
+<div class="volume transition_width" volume_guid="">
+    <div class="important_container">
+        <h1 class="label_block" volume_data="label"></h1>
+        <div class="capacity_block">
+            <div class="capacity_img">
+                <img src="./modules/fake_volumes/img/disk-space.PNG"></img>
+            </div>
+            <div class="capacity_info">
+                <h6>capacity : <span volume_data="size" data_convert="GB"></span></h6>
+                <h6><span class="grey_square"> </span>used : <span></span></h6>
+                <h6><span class="green_square"> </span>free : <span volume_data="free-space" data_convert="GB"></span></h6>
+            </div>
+        </div>
+    </div>
+    <div class="info_container transition">
+        <div class="info_column transition_scale_x">
+            <h6>Number of folders: <span volume_data="dir-count"></span></h6>
+            <h6>Number of files: <span volume_data="files-count"></span></h6>
+            <h6>Data fragmentation: 0% (0 Bytes of 40 GB)</h6>
+            <h6>File fragmentation: 0% (0 of 3259)</h6>
+        </div>
+        <div class="info_column transition_scale_x">
+            <h6>Clients: </h6>
+            <h6>Mount location: <span volume_data="preferred-mount-point">Authomatic</span></h6>
+        </div>
+    </div>
+    <div class="pointer">
+        <div class="point_body"></div>
+    </div>
+</div>

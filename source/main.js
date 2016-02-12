@@ -3,6 +3,8 @@ $('body script').first().before('<script src="./js/services/InfoChannel.js"></sc
 $('body script').first().before('<script src="./lib/modules/modules.js"></script>');
 $('body script').first().before('<script src="./lib/service/service.js"></script>');
 
+var $windowHeight = $(window).height();
+
 var userIsLogged = function(callback) {
     $.ajax({
         url: location.origin + '/proxy/login',

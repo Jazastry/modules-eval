@@ -3,18 +3,21 @@ div > * {
 }
 
 .fake_volumes {
-	height: 100%;
+    height: 100%;
 }
 
 .module_fake_volumes {
     width: 100%;
     height: 100%;
-    position: relative;    
+    position: relative;
 }
 
 .module_fake_volumes .volumes_container {
     width: 100%;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 0px;
     position: relative;
 }
 
@@ -24,62 +27,27 @@ div > * {
     position: relative;
     background-color: #fff;
     border-radius: 3px;
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
     padding-left: 20px;
 }
+
 .module_fake_volumes .volumes_container .volume .important_container {
-	display: inline-block;
-	width: 410px;
-	height: 100%;
-	padding-top: 7px;
+    display: inline-block;
+    background-color: #fff;
+    width: 410px;
+    height: 100%;
+    padding-top: 7px;
+    z-index: 3;
 }
-
-/* SHRINK FUNCTIONALITY */
-
-.module_fake_volumes .volumes_container .volume.shrink {
-    width: 25%;
-}
-
-.module_fake_volumes .volumes_container .volume.shrink .info_container {
-    opacity: 0;
-
-    	  -webkit-transform: scaleX(0);
-	  -webkit-transform-origin: left;
-
-	  -moz-transform: scaleX(0);
-	  -moz-transform-origin: left;
-
-	  -ms-transform: scaleX(0);
-	  -ms-transform-origin: left;
-
-	  -o-transform: scaleX(0);
-	  -o-transform-origin: left;
-
-	  transform: scaleX(0);
-	  transform-origin: left;
-}
-
-
-
-
-/*
-.module_fake_volumes .volumes_container .volume:hover {
-    -webkit-transform: translate(0px, -2px);
-    -moz-transform: translate(0px, -2px);
-    -ms-transform: translate(0px, -2px);
-    -o-transform: translate(0px, -2px);
-    transform: translate(0px, -2px);
-    box-shadow: 2px 2px 10px #888888;
-}*/
 
 .module_fake_volumes .volumes_container .volume .label_block {
     font-weight: 600;
     display: inline-block;
     width: 200px;
     padding-left: 30px;
-	position: relative;
-	top: 0px;
+    position: relative;
+    top: 0px;
 }
 
 .module_fake_volumes .volumes_container .volume .capacity_block {
@@ -92,7 +60,7 @@ div > * {
 .module_fake_volumes .volumes_container .volume .capacity_block .capacity_img {
     width: 90px;
     display: inline-block;
-   /* position: relative;
+    /* position: relative;
     top: 0px;*/
 }
 
@@ -104,7 +72,23 @@ div > * {
 .module_fake_volumes .volumes_container .volume .capacity_block .capacity_info {
     width: 50%;
     display: inline-block;
-/*    position: relative;*/
+    /*    position: relative;*/
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_info .green_square {
+    background-color: #708340;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_info .grey_square {
+    background-color: #F3F3F3;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
 }
 
 .module_fake_volumes .volumes_container .volume .info_container {
@@ -116,19 +100,15 @@ div > * {
     opacity: 1;
     position: absolute;
     right: 0px;
-
+    z-index: 1;
     -webkit-transform: scaleX(1);
     -webkit-transform-origin: left;
-
     -moz-transform: scaleX(1);
     -moz-transform-origin: left;
-
     -ms-transform: scaleX(1);
     -ms-transform-origin: left;
-
     -o-transform: scaleX(1);
     -o-transform-origin: left;
-
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -140,21 +120,58 @@ div > * {
     padding-left: 20px;
 }
 
-.module_fake_volumes .volumes_container .volume .green_square {
-    background-color: #708340;
-    width: 15px;
-    height: 15px;
-    float: left;
-    margin-right: 5px;
+/* SHRINK FUNCTIONALITY */
+
+.module_fake_volumes .volumes_container .volume.shrink {
+    width: 26%;
 }
 
-.module_fake_volumes .volumes_container .volume .grey_square {
-    background-color: #F3F3F3;
-    width: 15px;
-    height: 15px;
-    float: left;
-    margin-right: 5px;
+.module_fake_volumes .volumes_container .volume.shrink .info_container {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+    -webkit-transform-origin: left;
+    -moz-transform: scaleX(0);
+    -moz-transform-origin: left;
+    -ms-transform: scaleX(0);
+    -ms-transform-origin: left;
+    -o-transform: scaleX(0);
+    -o-transform-origin: left;
+    transform: scaleX(0);
+    transform-origin: left;
 }
+
+.module_fake_volumes .volumes_container .volume .pointer {
+    position: absolute;
+    right: -10px;
+    top: 43px;
+    width: 20px;
+    height: 20px;
+    z-index: 4;
+}
+
+.module_fake_volumes .volumes_container .volume .pointer .point_body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-left: 3px solid #EFEDED;
+    border-bottom: 3px solid #EFEDED;
+    background-color: #fff;
+
+    -webkit-transform: rotate(45deg);
+    -webkit-transform-origin: center;
+    -moz-transform: rotate(45deg);
+    -moz-transform-origin: center;
+    -ms-transform: rotate(45deg);
+    -ms-transform-origin: center;
+    -o-transform: rotate(45deg);
+    -o-transform-origin: center;
+    transform: rotate(45deg);
+    transform-origin: center;
+
+    display: none;
+}
+
+/* TRANSITIONS */
 
 .transition {
     -webkit-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) all;
@@ -173,11 +190,11 @@ div > * {
 }
 
 .transition_width {
-    -webkit-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) width;
-    -moz-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) width;
-    -ms-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) width;
-    -o-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) width;
-    transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) width;
+    -webkit-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
+    -moz-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
+    -ms-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
+    -o-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
+    transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
 }
 
 .transition_translate_y {
@@ -201,52 +218,40 @@ div > * {
     position: absolute;
     overflow: hidden;
     width: 0%;
-    height: 100%;
-    right: 20px;
+    right: -15px;
     top: 0px;
+    border-left: 3px solid #EFEDED;
+    z-index: 3;
 }
+
 
 /* SHRINK - VOLUME OPTIONS */
 
 .module_fake_volumes .volume_options_container.strech {
-    width: 72%;
+    width: 74%;
     overflow: hidden;
-}
-
-.module_fake_volumes .volume_options_container .navbar .glyphicon-remove:hover {
-    color: #DEDEDE;
-    cursor: pointer;
-}
-
-.module_fake_volumes .volume_options_container .form {
-    padding: 20px;
-    overflow: hidden;
-}
-
-.module_fake_volumes .volumes_container .volume .pointer {
-	position: absolute;
-	right: -20px;
-	top: 39px;
-	width: 20px;
-	height: 20px;	
-	z-index: 99;
-}
-.module_fake_volumes .volumes_container .volume .pointer .point_body {
-	width: 0px;
-    height: 0px;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid transparent;
-    border-right: 17px solid #fff;
-    display: none;
 }
 
 .border {
-	border: 2px solid black;
-	padding: 20px;	
-}
-.box {
-	float: left;
-	display: inline-block;
-	width: 48%;
+    border: 2px solid black;
+    padding: 20px;
 }
 
+.module_fake_volumes .volume_options_container fieldset {
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+.module_fake_volumes .volume_options_container fieldset legend {
+    position: relative;
+    right: 0px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.module_fake_volumes .volume_options_container fieldset .close_btn {
+    position: relative;
+    right: 0px;
+    float: right;
+    font-size: 30px;
+}
