@@ -43,7 +43,7 @@ var loadMainModules = function(){
                   '        </div>' +
                   '    </div>';
 
-    var fakeVolumes = '<div module="fake_volumes"></div>';
+    var fakeVolumes = '<div class="main_container"><div module="fake_volumes"></div></div>';
 
     var html =  header + fakeVolumes;
 	// $('body > .container').find('*').remove();

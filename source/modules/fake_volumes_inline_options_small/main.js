@@ -1,4 +1,4 @@
-function FakeVolumesModule(containerElement) {
+function FakeVolumesInlineOptionsSmallModule(containerElement) {
     this.containerElement = containerElement;
     this.loadModule();
     this.volumes = [{
@@ -73,20 +73,20 @@ function FakeVolumesModule(containerElement) {
     }];
 }
 
-FakeVolumesModule.prototype.loadModule = function() {
+FakeVolumesInlineOptionsSmallModule.prototype.loadModule = function() {
     var _this = this;
 
     _this.loadVolumes();
 };
 
-FakeVolumesModule.prototype.loadInteractiveStyles = function() {
+FakeVolumesInlineOptionsSmallModule.prototype.loadInteractiveStyles = function() {
     var _this = this;
 
     // add header height to relative vlumes container - top
     $(_this.containerElement).find('.module_fake_volumes').css('top', $('header').css('height'));
 };
 
-FakeVolumesModule.prototype.loadVolumes = function() {
+FakeVolumesInlineOptionsSmallModule.prototype.loadVolumes = function() {
     var _this = this;
 
     function loadVolumesDataToTemplate(template) {
@@ -122,7 +122,7 @@ FakeVolumesModule.prototype.loadVolumes = function() {
         return template;
     }
 
-    $.get('/modules/fake_volumes/templates/volume_template.html', null,
+    $.get('/modules/fake_volumes_inline_options_small/templates/volume_template.html', null,
         function(data) {
             loadVolumesDataToTemplate(data);
             _this.loadInteractiveStyles();
@@ -130,54 +130,16 @@ FakeVolumesModule.prototype.loadVolumes = function() {
         });
 };
 
-FakeVolumesModule.prototype.loadClickEvents = function() {
+FakeVolumesInlineOptionsSmallModule.prototype.loadClickEvents = function() {
     var _this = this;
 
-    $(_this.containerElement).find('.volume').on('click', function(e) {
-        var volumeData = _this.getVolumeByGuid($(this).attr('volume_guid'));
+    $(_this.containerElement).find('.volume .click_area').on('click', function(e) {
 
-        if (volumeData.label === 'SMALL') {
-            toggleOptions(this, $(_this.containerElement).find('#small_options_container'));
-        } else {
-            toggleOptions(this, $(_this.containerElement).find('#big_options_container'));
-
-        }
+        $(this).parent().find('.volume_options_container').slideToggle({
+            duration: 1000,
+            easing: 'easeOutQuint'
+        });
     });
-
-    function closeOptionsOpenVolumes(volumeOptionsContainer) {
-        $(_this.containerElement).find('.volume').removeClass('shrink');
-        $(volumeOptionsContainer).removeClass('strech');
-        $(_this.containerElement).find('.point_body').hide();
-    }
-
-    function openOptionsCloseVolumes(volumeElement, volumeOptionsContainer) {
-        loadOptionsData(volumeElement, volumeOptionsContainer);
-
-        $(_this.containerElement).find('.point_body').hide();
-
-        var bodyScrollVal = $('body').scrollTop();
-        var headerHeight = $('.module_header').outerHeight(true);
-        var height = $(volumeElement).height();
-        var bodyPadding = parseInt($('.module_fake_volumes').css('padding').replace('px', ''));
-
-        $(_this.containerElement).find('.volume').height(height).addClass('shrink');
-        $(volumeElement).find('.point_body').show();
-
-
-        $(volumeOptionsContainer).css('top', bodyScrollVal - bodyPadding - 3).css('min-height', $windowHeight - headerHeight);
-        $(volumeOptionsContainer).addClass('strech');
-    }
-
-    function changeVolumeFocus(volumeElement, volumeOptionsContainer) {
-        var bodyScrollVal = $('body').scrollTop();
-        var bodyPadding = parseInt($('.module_fake_volumes').css('padding').replace('px', ''));
-        var currentPos = $(volumeOptionsContainer).position();
-        $(volumeOptionsContainer).css('top', bodyScrollVal - bodyPadding - 3);
-        $(_this.containerElement).find('.point_body').hide();
-        $(volumeElement).find('.point_body').show();  
-
-        loadOptionsData(volumeElement, volumeOptionsContainer);
-    }
 
     function loadOptionsData(volumeElement, volumeOptionsContainer) {
         var guid = $(volumeElement).attr('volume_guid');
@@ -200,20 +162,9 @@ FakeVolumesModule.prototype.loadClickEvents = function() {
             }
         }
     }
-
-    function toggleOptions(volumeElement, volumeOptionsContainer) {
-        if ($(volumeElement).hasClass('shrink')) {
-            changeVolumeFocus(volumeElement, volumeOptionsContainer);
-        } else {
-            openOptionsCloseVolumes(volumeElement, volumeOptionsContainer);
-            $(volumeOptionsContainer).find('.close_btn').on('click', function(e) {
-                closeOptionsOpenVolumes(volumeOptionsContainer);
-            });
-        }
-    }
 };
 
-FakeVolumesModule.prototype.getVolumeByGuid = function(guid) {
+FakeVolumesInlineOptionsSmallModule.prototype.getVolumeByGuid = function(guid) {
     var _this = this;
 
     var volumeData = _this.volumes.filter(function(volume) {
@@ -225,7 +176,7 @@ FakeVolumesModule.prototype.getVolumeByGuid = function(guid) {
     return volumeData[0];
 };
 
-FakeVolumesModule.prototype.remove = function() {
+FakeVolumesInlineOptionsSmallModule.prototype.remove = function() {
     var _this = this;
 
     $(_this.containerElement).children().remove();

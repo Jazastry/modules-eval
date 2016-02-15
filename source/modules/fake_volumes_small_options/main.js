@@ -1,4 +1,4 @@
-function FakeVolumesModule(containerElement) {
+function FakeVolumesSmallOptionsModule(containerElement) {
     this.containerElement = containerElement;
     this.loadModule();
     this.volumes = [{
@@ -73,20 +73,20 @@ function FakeVolumesModule(containerElement) {
     }];
 }
 
-FakeVolumesModule.prototype.loadModule = function() {
+FakeVolumesSmallOptionsModule.prototype.loadModule = function() {
     var _this = this;
 
     _this.loadVolumes();
 };
 
-FakeVolumesModule.prototype.loadInteractiveStyles = function() {
+FakeVolumesSmallOptionsModule.prototype.loadInteractiveStyles = function() {
     var _this = this;
 
     // add header height to relative vlumes container - top
     $(_this.containerElement).find('.module_fake_volumes').css('top', $('header').css('height'));
 };
 
-FakeVolumesModule.prototype.loadVolumes = function() {
+FakeVolumesSmallOptionsModule.prototype.loadVolumes = function() {
     var _this = this;
 
     function loadVolumesDataToTemplate(template) {
@@ -122,7 +122,7 @@ FakeVolumesModule.prototype.loadVolumes = function() {
         return template;
     }
 
-    $.get('/modules/fake_volumes/templates/volume_template.html', null,
+    $.get('/modules/fake_volumes_small_options/templates/volume_template.html', null,
         function(data) {
             loadVolumesDataToTemplate(data);
             _this.loadInteractiveStyles();
@@ -130,7 +130,7 @@ FakeVolumesModule.prototype.loadVolumes = function() {
         });
 };
 
-FakeVolumesModule.prototype.loadClickEvents = function() {
+FakeVolumesSmallOptionsModule.prototype.loadClickEvents = function() {
     var _this = this;
 
     $(_this.containerElement).find('.volume').on('click', function(e) {
@@ -213,7 +213,7 @@ FakeVolumesModule.prototype.loadClickEvents = function() {
     }
 };
 
-FakeVolumesModule.prototype.getVolumeByGuid = function(guid) {
+FakeVolumesSmallOptionsModule.prototype.getVolumeByGuid = function(guid) {
     var _this = this;
 
     var volumeData = _this.volumes.filter(function(volume) {
@@ -225,7 +225,7 @@ FakeVolumesModule.prototype.getVolumeByGuid = function(guid) {
     return volumeData[0];
 };
 
-FakeVolumesModule.prototype.remove = function() {
+FakeVolumesSmallOptionsModule.prototype.remove = function() {
     var _this = this;
 
     $(_this.containerElement).children().remove();

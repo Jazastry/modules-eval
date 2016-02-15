@@ -1,0 +1,127 @@
+div > * {
+    vertical-align: middle; // Align children to middle of line
+}
+
+.fake_volumes {
+    height: 100%;
+}
+
+.module_fake_volumes {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.module_fake_volumes .volumes_container {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 0px;
+    position: relative;
+}
+
+.module_fake_volumes .volumes_container .volume {
+    width: 100%;
+    /*height: 108px;*/
+    position: relative;
+    background-color: #fff;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.module_fake_volumes .volumes_container .volume .click_area {
+    cursor: pointer;
+    height: 111px;
+}
+
+.module_fake_volumes .volumes_container .volume .important_container {
+    display: inline-block;
+    background-color: #fff;
+    width: 410px;
+    height: 100%;
+    padding-top: 7px;
+    z-index: 3;
+}
+
+.module_fake_volumes .volumes_container .volume .label_block {
+    font-weight: 600;
+    display: inline-block;
+    width: 200px;
+    padding-left: 30px;
+    position: relative;
+    top: 0px;
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block {
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_img {
+    width: 90px;
+    display: inline-block;
+    /* position: relative;
+    top: 0px;*/
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_img > img {
+    width: 90px;
+    position: relative;
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_info {
+    width: 50%;
+    display: inline-block;
+    /*    position: relative;*/
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_info .green_square {
+    background-color: #708340;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+}
+
+.module_fake_volumes .volumes_container .volume .capacity_block .capacity_info .grey_square {
+    background-color: #F3F3F3;
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+}
+
+.module_fake_volumes .volumes_container .volume .info_container {
+    width: 70%;
+    height: 111px;
+    display: inline-block;
+    font-family: Lucida, Console, monospace;
+    font-weight: 600;
+    opacity: 1;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+}
+
+.module_fake_volumes .volumes_container .volume .info_container .info_column {
+    width: 49%;
+    display: inline-block;
+    opacity: 1;
+    padding-left: 20px;
+}
+
+.module_fake_volumes .volume_options_container {
+    display: none;
+    height: 0%;
+}
+
+.module_fake_volumes .volume_options_container fieldset .close_btn {
+    position: relative;
+    right: 0px;
+    float: right;
+    font-size: 30px;
+}

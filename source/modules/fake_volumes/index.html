@@ -1,225 +1,173 @@
 <div class="module_fake_volumes module_container">
     <link rel="stylesheet" type="text/css" href="./modules/fake_volumes/style.css">
     <div class="volumes_container" opened="true">
-        <!-- <div class="volume transition_width">
-            <div class="important_container">
-                <h1 class="label_block">v1</h1>
-                <div class="capacity_block">
-                    <div class="capacity_img">
-                        <img src="./modules/fake_volumes/img/disk-space.PNG"></img>
-                    </div>
-                    <div class="capacity_info">
-                        <h6>capacity : 40GB</h6>
-                        <h6><span class="grey_square"> </span>used : 10GB</h6>
-                        <h6><span class="green_square"> </span>free : 30GB</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="info_container transition">
-                <div class="info_column transition_scale_x">
-                    <h6>Number of folders: 392</h6>
-                    <h6>Number of files: 3259</h6>
-                    <h6>Data fragmentation: 0% (0 Bytes of 40 GB)</h6>
-                    <h6>File fragmentation: 0% (0 of 3259)</h6>
-                </div>
-                <div class="info_column transition_scale_x">
-                    <h6>Clients: 0</h6>
-                    <h6>Mount location: Automatic</h6>
-                </div>
-            </div>
-            <div class="pointer">
-                <div class="point_body"></div>
-            </div>
-        </div> -->
-        <!-- <div class="volume transition_width">
-            <div class="important_container">
-                <h1 class="label_block">v1</h1>
-                <div class="capacity_block">
-                    <div class="capacity_img">
-                        <img src="./modules/fake_volumes/img/disk-space.PNG"></img>
-                    </div>
-                    <div class="capacity_info">
-                        <h6>capacity : 40GB</h6>
-                        <h6><span class="grey_square"> </span>used : 10GB</h6>
-                        <h6><span class="green_square"> </span>free : 30GB</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="info_container transition">
-                <div class="info_column transition_scale_x">
-                    <h6>Number of folders: 392</h6>
-                    <h6>Number of files: 3259</h6>
-                    <h6>Data fragmentation: 0% (0 Bytes of 40 GB)</h6>
-                    <h6>File fragmentation: 0% (0 of 3259)</h6>
-                </div>
-                <div class="info_column transition_scale_x">
-                    <h6>Clients: 0</h6>
-                    <h6>Mount location: Automatic</h6>
-                </div>
-            </div>
-            <div class="pointer">
-                <div class="point_body"></div>
-            </div>
-        </div> -->
-        <div class="volume_options_container transition_width">
-            <fieldset class="">                
-                <legend class="">Replication Target <div class="glyphicon glyphicon-remove close_btn"></div>
-                </legend>
-                <!-- volume_data -->
-                <h1 volume_data="label"></h1>
-                <div class="">
-                    <label>
-                        <input type="radio" name="backup-target-radio" class="" checked="checked"> No Replication</label>
-                </div>
-                <div class="">
-                    <label>
-                        <input type="radio" name="backup-target-radio" class=""> Private volumes</label>
-                </div>
-                <div class="">
-                    <label>
-                        <input type="radio" name="backup-target-radio" class=""> Network Location</label>
-                </div>
-                <div class="">
-                    <div class="">
-                        <label class="">Enter the full path to the network location on which to replicate data.</label>
-                    </div>
-                    <div class="">
-                        <div>
-                            <label>device-symbolic-link</label>
-                            <input type="text" class="" value="" volume_data="device-symbolic-link">
+        <div id="big_options_container" class="volume_options_container transition_width">
+            <fieldset class="container">
+                <div class="col-xl-12">
+                    <legend class="col-xl-12">Replication Target
+                        <div class="glyphicon glyphicon-remove close_btn"></div>
+                    </legend>
+                    <!-- volume_data -->
+                    <h1 volume_data="label"></h1>
+                    <div class="col-xl-6">
+                        <div class="col-xl-11 well">
+                            <div class="">
+                                <label>
+                                    <input type="radio" name="backup-target-radio" class="" checked="checked"> No Replication</label>
+                            </div>
+                            <div class="">
+                                <label>
+                                    <input type="radio" name="backup-target-radio" class=""> Private volumes</label>
+                            </div>
+                            <div class="">
+                                <label>
+                                    <input type="radio" name="backup-target-radio" class=""> Network Location</label>
+                            </div>
+                        </div>
+                        <div class="col-xl-11 well">
+                            <label>
+                                <input type="radio" name="backup-target-radio" class=""> Spectra Logic BlackPearl</label>
+                        </div>
+                        <div class="col-xl-11 well">
+                            <div class="">
+                                <div class="">
+                                    <label class="">Specify the URL, policy and credentials for the Web Object Scaler:</label>
+                                </div>
+                                <div class="">
+                                    <label class="">WOS Address:</label>
+                                    <input type="text" class="">
+                                </div>
+                                <div class="">
+                                    <label class="">Policy for volume v3 :
+                                        <input type="text" class="">
+                                    </label>
+                                </div>
+                                <div class="">
+                                    <label class="">Policy for volume v2 :
+                                        <input type="text" class="">
+                                    </label>
+                                </div>
+                                <div class="">
+                                    <label class="">Policy for volume V1 :
+                                        <input type="text" class="">
+                                    </label>
+                                </div>
+                                <div class="">
+                                    <label class="">User Name:</label>
+                                    <input type="text" class="">
+                                </div>
+                                <div class="">
+                                    <label class="">Password:</label>
+                                    <input type="password" class="">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        <label class="">Folder for volume v3 :
-                            <input type="text">
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Folder for volume v2 :
+                    <div class="col-xl-6">
+                        <div class="col-xl-11 xol-xl-offset-1 well">
+                            <div class="">
+                                <label class="">Enter the full path to the network location on which to replicate data.</label>
+                            </div>
+                            <div class="">
+                                <div>
+                                    <label>device-symbolic-link</label>
+                                    <input type="text" class="" value="" volume_data="device-symbolic-link">
+                                </div>
+                            </div>
+                            <div class="">
+                                <label class="">Folder for volume v3 :
+                                    <input type="text">
+                                </label>
+                            </div>
+                            <div class="">
+                                <label class="">Folder for volume v2 :
+                                    <input type="text" class="">
+                                </label>
+                            </div>
+                            <div class="">
+                                <label class="">Folder for volume V1 :
+                                    <input type="text" class="">
+                                </label>
+                            </div>
+                            <div class="">
+                                <label class="">Share credentials:</label>
+                                <label class="">Provide the credentials of an account that has Read &amp; Write permissions for the network location.</label>
+                            </div>
+                            <div class="">
+                                <label class="">User Name:</label>
+                                <input type="text" class="">
+                            </div>
+                            <div class="">
+                                <label class="">Password:</label>
+                                <input type="password" class="">
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-xl-12 well">
+                        <div class="">
+                            <label class="">Specify the data port, bucket, access ID and secret key for Spectra Logic BlackPearl:</label>
+                        </div>
+                        <div class="">
+                            <label class="">Data Port:</label>
                             <input type="text" class="">
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Folder for volume V1 :
+                        </div>
+                        <div class="">
+                            <label class="">Access ID:</label>
                             <input type="text" class="">
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Share credentials:</label>
-                        <label class="">Provide the credentials of an account that has Read &amp; Write permissions for the network location.</label>
-                    </div>
-                    <div class="">
-                        <label class="">User Name:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Password:</label>
-                        <input type="password" class="">
-                    </div>
-                </div>
-                <div class="">
-                    <div class="">
-                        <label class="">Specify the URL, policy and credentials for the Web Object Scaler:</label>
-                    </div>
-                    <div class="">
-                        <label class="">WOS Address:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Policy for volume v3 :
+                        </div>
+                        <div class="">
+                            <label class="">Secret Key:</label>
+                            <input type="password" class="">
+                        </div>
+                        <div class="">
+                            <label class="">Bucket for volume v3 :
+                                <input type="text" class="">
+                            </label>
+                        </div>
+                        <div class="">
+                            <label class="">Bucket for volume v2 :
+                                <input type="text" class="">
+                            </label>
+                        </div>
+                        <div class="">
+                            <label class="">Bucket for volume V1 :
+                                <input type="text" class="">
+                            </label>
+                        </div>
+                        <div class="">
+                            <label class="">Specify the data port, bucket, access ID and secret key for Spectra Logic BlackPearl:</label>
+                        </div>
+                        <div class="">
+                            <label class="">Data Port:</label>
                             <input type="text" class="">
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Policy for volume v2 :
+                        </div>
+                        <div class="">
+                            <label class="">Access ID:</label>
                             <input type="text" class="">
-                        </label>
+                        </div>
+                        <div class="">
+                            <label class="">Secret Key:</label>
+                            <input type="password" class="">
+                        </div>
+                        <div class="">
+                            <label class="">Bucket for volume v3 :
+                                <input type="text" class="">
+                            </label>
+                        </div>
+                        <div class="">
+                            <label class="">Bucket for volume v2 :
+                                <input type="text" class="">
+                            </label>
+                        </div>
+                        <div class="">
+                            <label class="">Bucket for volume V1 :
+                                <input type="text" class="">
+                            </label>
+                        </div>
                     </div>
-                    <div class="">
-                        <label class="">Policy for volume V1 :
-                            <input type="text" class="">
-                        </label>
+                    <div class="col-xl-12 well">
+                        <input type="button" class="" value="Verify and Apply Settings" disabled="disabled">
                     </div>
-                    <div class="">
-                        <label class="">User Name:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Password:</label>
-                        <input type="password" class="">
-                    </div>
-                </div>
-                <div class="">
-                    <label>
-                        <input type="radio" name="backup-target-radio" class=""> Spectra Logic BlackPearl</label>
-                </div>
-                <div class="" >
-                    <div class="">
-                        <label class="">Specify the data port, bucket, access ID and secret key for Spectra Logic BlackPearl:</label>
-                    </div>
-                    <div class="">
-                        <label class="">Data Port:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Access ID:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Secret Key:</label>
-                        <input type="password" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Bucket for volume v3 :
-                            <input type="text" class="">
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Bucket for volume v2 :
-                            <input type="text" class="" >
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Bucket for volume V1 :
-                            <input type="text" class="" >
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Specify the data port, bucket, access ID and secret key for Spectra Logic BlackPearl:</label>
-                    </div>
-                    <div class="">
-                        <label class="">Data Port:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Access ID:</label>
-                        <input type="text" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Secret Key:</label>
-                        <input type="password" class="">
-                    </div>
-                    <div class="">
-                        <label class="">Bucket for volume v3 :
-                            <input type="text" class="">
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Bucket for volume v2 :
-                            <input type="text" class="" >
-                        </label>
-                    </div>
-                    <div class="">
-                        <label class="">Bucket for volume V1 :
-                            <input type="text" class="" >
-                        </label>
-                    </div>
-                </div>
-                <div class="">
-                    <input type="button" class="" value="Verify and Apply Settings" disabled="disabled">
-                </div>
-                <div class="">
-                    <label class=""></label>
                 </div>
             </fieldset>
         </div>

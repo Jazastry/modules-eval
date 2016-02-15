@@ -14,10 +14,7 @@ div > * {
 
 .module_fake_volumes .volumes_container {
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 0px;
+    padding: 0px;
     position: relative;
 }
 
@@ -30,6 +27,8 @@ div > * {
     margin-top: 10px;
     cursor: pointer;
     padding-left: 20px;
+    overflow-x : hidden;
+    left: 5px;
 }
 
 .module_fake_volumes .volumes_container .volume .important_container {
@@ -122,34 +121,17 @@ div > * {
 
 /* SHRINK FUNCTIONALITY */
 
-.module_fake_volumes .volumes_container .volume.shrink {
-    width: 26%;
-}
-
-.module_fake_volumes .volumes_container .volume.shrink .info_container {
-    opacity: 0;
-    -webkit-transform: scaleX(0);
-    -webkit-transform-origin: left;
-    -moz-transform: scaleX(0);
-    -moz-transform-origin: left;
-    -ms-transform: scaleX(0);
-    -ms-transform-origin: left;
-    -o-transform: scaleX(0);
-    -o-transform-origin: left;
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-.module_fake_volumes .volumes_container .volume .pointer {
+.module_fake_volumes .volume_options_container .pointer {
     position: absolute;
-    right: -10px;
-    top: 43px;
+    background-color: red;
+    left: 0px;
+    top: 200px;
     width: 20px;
     height: 20px;
     z-index: 4;
 }
 
-.module_fake_volumes .volumes_container .volume .pointer .point_body {
+.module_fake_volumes .volume_options_container .pointer .point_body {
     position: relative;
     width: 100%;
     height: 100%;
@@ -171,65 +153,14 @@ div > * {
     display: none;
 }
 
-/* TRANSITIONS */
-
-.transition {
-    -webkit-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) all;
-    -moz-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) all;
-    -ms-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) all;
-    -o-transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) all;
-    transition: 800ms cubic-bezier(0.25, 0.20, 0.18, 0.90) all;
-}
-
-.transition_scale_x {
-    -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-}
-
-.transition_width {
-    -webkit-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
-    -moz-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
-    -ms-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
-    -o-transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
-    transition: 800ms cubic-bezier(0.26, 0.23, 0.18, 0.9) width;
-}
-
-.transition_translate_y {
-    -webkit-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    -moz-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    -ms-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    -o-transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-    transition: 200ms cubic-bezier(0.250, 0.250, 0.750, 0.750) transform;
-}
-
-.transition-opacity {
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) opacity;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) opacity;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) opacity;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) opacity;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) opacity;
-}
-
 .module_fake_volumes .volume_options_container {
     background-color: #fff;
     position: absolute;
-    overflow: hidden;
     width: 0%;
-    right: -15px;
+    right: 0px;
     top: 0px;
     border-left: 3px solid #EFEDED;
     z-index: 3;
-}
-
-
-/* SHRINK - VOLUME OPTIONS */
-
-.module_fake_volumes .volume_options_container.strech {
-    width: 74%;
-    overflow: hidden;
 }
 
 .border {
@@ -237,15 +168,16 @@ div > * {
     padding: 20px;
 }
 
+
 .module_fake_volumes .volume_options_container fieldset {
-    padding: 20px;
     position: relative;
-    width: 100%;
+}
+
+.module_fake_volumes .volume_options_container fieldset>div {
+    overflow: hidden;
+    position: relative;
 }
 .module_fake_volumes .volume_options_container fieldset legend {
-    position: relative;
-    right: 0px;
-    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
 }
