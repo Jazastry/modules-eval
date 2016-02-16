@@ -3,12 +3,12 @@ div > * {
 }
 
 .fake_volumes {
-    height: 100%;
+    /*height: 100%;*/
 }
 
 .module_fake_volumes {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     position: relative;
 }
 

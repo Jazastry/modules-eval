@@ -20,39 +20,47 @@ header {
 }
 
 .module_header ul {
+    padding: 0px;
     display: inline-block;
     list-style: none;
-    padding-left: 3%;
     margin-bottom: 0px;
     height: 100%;
-    width: 100%;
+    width: 99%;
     background-color: #525252;
 }
 
 .module_header .glyphicon {
-    top: 0px;
+    position: relative;
+    top: -1px;
 }
 
 .module_header ul li {
     display: inline-block;
-    border-left: 2px solid #5A5A5A;
-    width: 8%;
+    /*border-left: 2px solid #5A5A5A;*/
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 30px;
-    padding: 20px 0px 20px 0px;
+    padding: 10px 0px 0px 0px;
     float: left;
     color: #949494;
 }
 
-.module_header ul li:last-child {
+/*.module_header ul li:last-child {
     border-right: 2px solid #5A5A5A;
-}
+}*/
 
-.module_header ul li:hover {
+.module_header ul li:hover, 
+.module_header ul li .header_gliphicon_label:hover {
     color: #D2D2D2;
 }
 
-.module_header ul li:active {
+.module_header ul li:active,
+.module_header ul li .header_gliphicon_label:active {
     color: #D2D2D2;
+}
+
+.module_header ul li .header_gliphicon_label {
+    font-size: 13px;
+    white-space: nowrap;
+    display: block;
 }
