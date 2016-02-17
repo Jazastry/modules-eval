@@ -29,7 +29,8 @@ HeaderModule.prototype.loadInteractiveStyles = function() {
     var _this = this;
     var liCount = $(_this.containerElement).find('li').length;
     var liWidth = (100 / liCount);
-    $(_this.containerElement).find('li').width(liWidth+'%');
+    console.log('liWidth ' , liWidth);
+    $(_this.containerElement).find('li').width(liWidth + '%');
 };
 
 HeaderModule.prototype.remove = function() {

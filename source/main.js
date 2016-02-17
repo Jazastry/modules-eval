@@ -46,11 +46,8 @@ var loadMainModules = function(){
     var fakeVolumes = '<div class="main_container"><div module="fake_volumes"></div></div>';
 
     var html =  header + fakeVolumes;
-	// $('body > .container').find('*').remove();
-	// $('body > .container').append(html);
     $('body').find('*').remove();
     $('body').append(html);
-	// modules.renderOneLevelModules($('body > .container'));
     modules.renderOneLevelModules($('body'));
 };
 
@@ -61,21 +58,11 @@ $(document).ready(function(){
     service = new ttService("10.200.0.182:9125/v2");
 
     // select main modules container and pass it to render function
-    //modules.renderOneLevelModules($('body>.container'));
     userIsLogged(function(isLogged){
     	if (isLogged) {
     		loadMainModules();
     	} else {
     		loadLoginModule();
     	}
-    });
-
-    $('.change_theme').on('click', function(e){
-        var body = $('body');
-        if ($(body).hasClass('dark')) {
-            $('body').removeClass('dark');
-        } else {
-            $('body').addClass('dark');
-        }
     });
 });

@@ -133,16 +133,35 @@ FakeVolumesTightOptionsModule.prototype.loadVolumes = function() {
 FakeVolumesTightOptionsModule.prototype.loadClickEvents = function() {
     var _this = this;
     var volumeOptionsContainer = $(_this.containerElement).find('.volume_options_container');
+    var animationSettings = {
+        optionsContainerWidth: '400px',
+        optionsContainerAddition: 15,
+        animationDuration: 900,
+        easing: 'easeOutQuint',
+        pointer: $(_this.containerElement).find('.volumes_container .pointer')
+    };
 
     $(_this.containerElement).find('.volume').on('click', function(e) {
         toggleOptions(this);
     });
 
     $(_this.containerElement).find('.close_btn').on('click', function() {
-        closeOptions();
+        closeOptions(animationSettings);
     });
 
-    function adjustOptionsTopPosition(volumeElement) {
+    function toggleOptions(volumeElement) {
+        loadOptionsData(volumeElement);
+
+        var pointerTop = $(volumeElement).position().top - ($(volumeElement).height() + ($(volumeElement).height() / 4));
+
+        if ($(volumeOptionsContainer).attr('opened') === 'true') {
+            changePointerVolumeFocus(animationSettings, pointerTop);
+        } else {
+            openOptions(animationSettings, pointerTop);
+        }
+    }
+
+    function adjustOptionsTopPosition() {
         var bodyScrollVal = $('body').scrollTop();
         var bodyPadding = parseInt($('.module_fake_volumes').css('padding').replace('px', ''));
         var currentPos = $(volumeOptionsContainer).position();
@@ -171,58 +190,72 @@ FakeVolumesTightOptionsModule.prototype.loadClickEvents = function() {
         }
     }
 
-    function openOptions(volumeElement, pointerTop) {
-        var optionsContainerWidth = '300px';
-        var optionsContainerAddition = 20;
-        var animationDuration = 900;
+    function openOptions(animationSettings, pointerTop) {
+        $(animationSettings.pointer).find('.point_body').css('top', pointerTop);
+        $(volumeOptionsContainer).find('fieldset').outerWidth(animationSettings.optionsContainerWidth);
 
-        $(volumeOptionsContainer).show();        
-        $(volumeOptionsContainer).find('.pointer').show();
-
-        var pointer = $(volumeOptionsContainer).find('.pointer');
-
-        $(pointer).find('.point_body').css('top', pointerTop);
-        $(pointer).css('right', optionsContainerWidth);
-
-        $(volumeOptionsContainer).find('fieldset').outerWidth(optionsContainerWidth);
         $(volumeOptionsContainer).animate({
-            width: (parseInt(optionsContainerWidth) + optionsContainerAddition) + 'px'
+            width: (parseInt(animationSettings.optionsContainerWidth) + animationSettings.optionsContainerAddition) + 'px'
         }, {
-            duration: animationDuration,
+            duration: animationSettings.animationDuration,
             easing: 'easeOutQuint',
             queue: false,
             start: function() {
+                $(volumeOptionsContainer).show();
+                $(animationSettings.pointer).show();
 
-                $(volumeOptionsContainer).show();        
-                $(volumeOptionsContainer).find('.pointer').show();
+                $(animationSettings.pointer).animate({
+                    right: '+=' + animationSettings.optionsContainerWidth
+                }, {
+                    duration: animationSettings.animationDuration,
+                    easing: animationSettings.easing,
+                });
 
                 $(_this.containerElement).find('.volume').animate({
-                    width: '-=' + optionsContainerWidth
+                    width: '-=' + animationSettings.optionsContainerWidth
                 }, {
-                    duration: animationDuration,
-                    easing: 'easeOutQuint',
+                    duration: animationSettings.animationDuration,
+                    easing: animationSettings.easing,
                 });
-            },
-            complete: function() {
-                // $(volumeOptionsContainer).attr('opened', true);  
 
+
+                $(volumeOptionsContainer).find('fieldset').animate({
+                    opacity: '1'
+                }, {
+                    duration: animationSettings.animationDuration,
+                    easing: animationSettings.easing
+                });
             }
         });
         $(volumeOptionsContainer).attr('opened', true);
     }
 
-    function closeOptions() {
+    function closeOptions(animationSettingsanimationSettings) {
         $(volumeOptionsContainer).animate({
-            width: '0%'
+            width: '-=' + animationSettings.optionsContainerWidth
         }, {
-            duration: 1500,
-            easing: 'easeOutQuint',
+            duration: animationSettings.animationDuration,
+            easing: animationSettings.easing,
             start: function() {
-                $(_this.containerElement).find('.volume').animate({
-                    width: '100%'
+                $(animationSettings.pointer).animate({
+                    right: '-=' + animationSettings.optionsContainerWidth
                 }, {
-                    duration: 1500,
-                    easing: 'easeOutQuint'
+                    duration: animationSettings.animationDuration,
+                    easing: animationSettings.easing,
+                });
+
+                $(_this.containerElement).find('.volume').animate({
+                    width: '+=' + animationSettings.optionsContainerWidth
+                }, {
+                    duration: animationSettings.animationDuration,
+                    easing: animationSettings.easing
+                });
+
+                $(volumeOptionsContainer).find('fieldset').animate({
+                    opacity: '0'
+                }, {
+                    duration: animationSettings.animationDuration,
+                    easing: animationSettings.easing
                 });
             },
             complete: function() {
@@ -233,27 +266,14 @@ FakeVolumesTightOptionsModule.prototype.loadClickEvents = function() {
         });
     }
 
-    function changeVolumeOptionsFocus(pointerTop, volumeElement) {
+    function changePointerVolumeFocus(animationSettings, pointerTop) {
         $(_this.containerElement).find('.point_body').animate({
             top: pointerTop
         }, {
             duration: 900,
-            easing: 'easeOutQuart',
+            easing: animationSettings.easing,
             queue: false
         });
-    }
-
-    function toggleOptions(volumeElement) {
-        loadOptionsData(volumeElement);
-        // adjustOptionsTopPosition(volumeElement);
-      
-        var pointerTop = $(volumeElement).position().top - ($(volumeElement).outerHeight() - 5);
-
-        if ($(volumeOptionsContainer).attr('opened') === 'true') {
-            changeVolumeOptionsFocus(pointerTop, volumeElement);
-        } else {
-            openOptions(volumeElement, pointerTop);
-        }
     }
 };
 
